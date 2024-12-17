@@ -1,0 +1,29 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+//빵1 야채2 고기3 빵1
+
+int solution(vector<int> ingredient) 
+{
+    int answer = 0;
+    
+    vector<int>v;
+    
+    for(auto ingredients :ingredient)
+    {
+        v.push_back(ingredients);
+        
+        if(v.size() >= 4 && 
+           v[v.size()-4]==1 &&
+           v[v.size()-3]==2 &&
+           v[v.size()-2]==3 &&
+           v[v.size()-1]==1)
+        {
+            answer++;          
+            v.erase(v.end()-4, v.end());
+        }
+    }
+    return answer;
+}

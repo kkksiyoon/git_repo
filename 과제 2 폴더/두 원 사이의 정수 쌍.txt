@@ -1,0 +1,26 @@
+#include <string>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+long long solution(int r1, int r2) 
+{
+    long long answer = 0;
+    
+    for(int x = 1; x<=r2; x++)
+    {      
+        long long x2 = (long long)x*x; 
+        
+        long long min = ceil(sqrt(r1*r1-x2));
+        long long max = floor(sqrt(r2*r2-x2));
+        
+        if(min<=max)
+        {
+            answer += (max - min +1);
+        }
+            
+    }
+    
+    return answer*4;
+}
